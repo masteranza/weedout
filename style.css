@@ -1,0 +1,242 @@
+/* Weedout — field-terminal stylesheet.
+   Pixel display type (Silkscreen) + system mono, dark garden palette
+   lifted from the app icon: green pixel letters, red strike bar. */
+
+:root {
+  color-scheme: dark;
+  --soil:   #0b1410;   /* page */
+  --bed:    #101d15;   /* panels */
+  --line:   #21382a;   /* rules & borders */
+  --dim:    #17281e;   /* thumb fill */
+  --fg:     #cde6d3;
+  --muted:  #7da28b;
+  --sprout: #43dd7c;   /* icon letter green */
+  --leaf:   #23b45f;
+  --bar:    #ee4237;   /* icon strike red */
+  --ink:    #08100b;
+  --pixel: "Silkscreen", monospace;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { background: var(--soil); }
+
+body {
+  background:
+    radial-gradient(var(--dim) 1px, transparent 1px) 0 0 / 26px 26px,
+    var(--soil);
+  color: var(--fg);
+  font: 14px/1.75 var(--mono);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: clamp(28px, 6vw, 64px) 20px 40px;
+}
+
+main { max-width: 680px; width: 100%; }
+
+::selection { background: var(--sprout); color: var(--ink); }
+:focus-visible { outline: 2px solid var(--sprout); outline-offset: 3px; }
+
+a { color: var(--sprout); text-decoration: none; border-bottom: 1px dashed var(--leaf); }
+a:hover { background: var(--sprout); color: var(--ink); border-bottom-color: var(--sprout); }
+
+b, strong { color: var(--fg); }
+
+/* ---- hero ---------------------------------------------------- */
+
+.hero { display: flex; align-items: center; gap: 18px; margin-bottom: 14px; }
+.hero .mark {
+  width: 76px; height: 76px;
+  image-rendering: pixelated;
+  border: 2px solid var(--line);
+  flex-shrink: 0;
+}
+h1 {
+  font-family: var(--pixel);
+  font-weight: 700;
+  font-size: clamp(28px, 7vw, 42px);
+  line-height: 1;
+  letter-spacing: 0.03em;
+  color: var(--fg);
+}
+.sub {
+  font-family: var(--pixel);
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  color: var(--sprout);
+  margin-top: 8px;
+}
+
+.tag { color: var(--muted); margin: 18px 0 30px; }
+.tag b { color: var(--fg); font-weight: 400; }
+
+/* red strike, straight over the words like the icon bar */
+.strike { position: relative; white-space: nowrap; color: var(--fg); }
+.strike::after {
+  content: "";
+  position: absolute;
+  left: -2px; right: -2px; top: 52%;
+  height: 5px;
+  margin-top: -2px;
+  background: var(--bar);
+}
+
+/* ---- section headers ----------------------------------------- */
+
+h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--pixel);
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  color: var(--sprout);
+  margin: 44px 0 16px;
+}
+h2 svg { flex-shrink: 0; }
+h2::after { content: ""; flex: 1; border-top: 2px dashed var(--line); }
+
+/* ---- lists ---------------------------------------------------- */
+
+ul { list-style: none; }
+li { display: flex; gap: 12px; margin: 12px 0; }
+li svg { flex-shrink: 0; margin-top: 5px; }
+
+.fineprint { color: var(--muted); font-size: 12.5px; margin-top: 16px; }
+
+/* ---- framed panels (fieldset-style legend) -------------------- */
+
+.plot { position: relative; border: 2px solid var(--line); background: var(--bed); padding: 22px 18px 16px; margin: 30px 0; }
+.plot .legend {
+  position: absolute;
+  top: -9px; left: 14px;
+  background: var(--soil);
+  padding: 0 8px;
+  font-family: var(--pixel);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  color: var(--muted);
+}
+.plot .legend .dot {
+  display: inline-block;
+  width: 7px; height: 7px;
+  background: var(--bar);
+  margin-right: 6px;
+  animation: blink 2s steps(1) infinite;
+}
+
+/* ---- demo: weeds pulled from a feed row ----------------------- */
+
+.demo { display: flex; gap: 10px; }
+.vid { flex: 1 1 0; min-width: 0; }
+.thumb {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background:
+    repeating-linear-gradient(45deg, transparent 0 7px, rgba(67, 221, 124, 0.04) 7px 14px),
+    var(--dim);
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+.dur {
+  position: absolute;
+  right: 3px; bottom: 3px;
+  font-size: 8px;
+  line-height: 1;
+  padding: 2px 3px;
+  background: var(--ink);
+  color: var(--muted);
+}
+.chip {
+  position: absolute;
+  left: 3px; top: 3px;
+  font-family: var(--pixel);
+  font-size: 8px;
+  line-height: 1;
+  padding: 2px 3px;
+  background: var(--bar);
+  color: #fff;
+}
+.l1, .l2 { height: 5px; background: var(--line); margin-top: 7px; }
+.l1 { width: 92%; }
+.l2 { width: 58%; }
+
+.weed .thumb::after {
+  content: "";
+  position: absolute;
+  left: 4%; right: 4%; top: 46%;
+  height: 4px;
+  background: var(--bar);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: strike 9s infinite;
+}
+.weed {
+  transform-origin: 35% 100%;
+  animation: pull 9s infinite;
+}
+.w2, .w2 .thumb::after { animation-delay: -4.5s; }
+
+@keyframes strike {
+  0%, 20%   { transform: scaleX(0); }
+  25%, 50%  { transform: scaleX(1); }
+  51%, 100% { transform: scaleX(0); }
+}
+@keyframes pull {
+  0%, 27%   { flex-grow: 1; opacity: 1; transform: none; filter: none; }
+  32%       { flex-grow: 1; opacity: 1; transform: rotate(-2.5deg); filter: saturate(0.35) brightness(0.85); }
+  40%       { flex-grow: 1; opacity: 0; transform: translateY(-38px) rotate(7deg); filter: saturate(0.2); }
+  50%, 80%  { flex-grow: 0.001; opacity: 0; transform: translateY(-38px) rotate(7deg); }
+  88%       { flex-grow: 1; opacity: 0; transform: none; filter: none; }
+  96%, 100% { flex-grow: 1; opacity: 1; transform: none; filter: none; }
+}
+@keyframes blink { 50% { opacity: 0.15; } }
+
+.demo-note { color: var(--muted); font-size: 12px; margin-top: 12px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .weed, .weed .thumb::after, .plot .legend .dot { animation: none; }
+  .weed { opacity: 0.45; filter: saturate(0.3); }
+  .weed .thumb::after { transform: scaleX(1); }
+}
+
+@media (max-width: 480px) {
+  .demo .vid:nth-child(5) { display: none; }
+  .hero { gap: 14px; }
+  .hero .mark { width: 60px; height: 60px; }
+  .sub { font-size: 9px; letter-spacing: 0.16em; }
+}
+
+/* ---- prose pages (privacy) ------------------------------------ */
+
+.crumb { font-family: var(--pixel); font-size: 10px; letter-spacing: 0.2em; margin-bottom: 28px; }
+.crumb a { border-bottom: none; }
+.date { color: var(--muted); font-size: 12px; margin: 6px 0 26px; }
+.prose h2 { margin: 34px 0 10px; }
+.prose p { margin: 10px 0; }
+.lead { font-weight: 700; }
+.lead p { margin: 0; }
+
+/* ---- footer --------------------------------------------------- */
+
+footer {
+  margin-top: 56px;
+  padding-top: 18px;
+  border-top: 2px dashed var(--line);
+  color: var(--muted);
+  font-size: 12px;
+}
+footer nav {
+  font-family: var(--pixel);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  margin-bottom: 10px;
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+footer nav a { border-bottom: none; }
