@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Weedout for YouTube</title>
+<meta name="description" content="Weedout is a Safari extension that filters out videos YouTube labels as “Made with AI”.">
+<link rel="icon" type="image/png" sizes="32x32" href="icon-32.png">
+<link rel="apple-touch-icon" href="icon-128.png">
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #f6f8f6;
+    --card: #ffffff;
+    --fg: #16211a;
+    --muted: #5b6b60;
+    --accent: #16a34a;
+    --accent-bright: #4ade80;
+    --danger: #dc2626;
+    --line: #e2e8e4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1912;
+      --card: #122118;
+      --fg: #eef2ef;
+      --muted: #9fb2a6;
+      --accent: #4ade80;
+      --line: #223429;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font: 17px/1.6 -apple-system, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    padding: 48px 20px;
+  }
+  main { max-width: 640px; width: 100%; }
+  .hero { text-align: center; margin-bottom: 40px; }
+  .hero img { width: 96px; height: 96px; border-radius: 22px; }
+  h1 { font-size: 32px; margin: 16px 0 6px; letter-spacing: -0.02em; }
+  .tag { color: var(--muted); font-size: 19px; }
+  .tag b { color: var(--accent); font-weight: 600; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin: 18px 0;
+  }
+  .card h2 { font-size: 15px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 12px; }
+  ul { list-style: none; }
+  li { padding-left: 28px; position: relative; margin: 10px 0; }
+  li::before { content: "🌱"; position: absolute; left: 0; }
+  li.no::before { content: "🚫"; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  footer {
+    margin-top: 40px;
+    color: var(--muted);
+    font-size: 14px;
+    text-align: center;
+  }
+  footer nav { margin-bottom: 8px; }
+  footer nav a { margin: 0 10px; }
+</style>
+</head>
+<body>
+<main>
+  <div class="hero">
+    <img src="icon-128.png" alt="Weedout icon" width="96" height="96">
+    <h1>Weedout for YouTube</h1>
+    <p class="tag">A Safari extension that quietly removes videos YouTube labels as <b>“Made with AI”</b> — from your feed, search, related videos and Shorts.</p>
+  </div>
+
+  <div class="card">
+    <h2>What it does</h2>
+    <ul>
+      <li>Filters AI-labeled videos out of home, search, related, playlists and Shorts shelves</li>
+      <li>Auto-skips AI-labeled Shorts in the Shorts player (optional)</li>
+      <li>Dim mode shows what would be removed before you trust it</li>
+      <li>Runs entirely on your Mac — no accounts, no tracking, <a href="privacy.html">no data collection</a></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Support</h2>
+    <p>Questions, bug reports, or a video that slipped through?<br>
+    Email <a href="mailto:masteranza@gmail.com">masteranza@gmail.com</a> — include the video link if it’s about detection.</p>
+  </div>
+
+  <footer>
+    <nav><a href="privacy.html">Privacy Policy</a> · <a href="mailto:masteranza@gmail.com">Contact</a></nav>
+    © 2026 Michal Mandrysz
+  </footer>
+</main>
+</body>
+</html>
