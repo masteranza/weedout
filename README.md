@@ -4,6 +4,8 @@ Weedout is a Safari extension for macOS that removes videos YouTube itself label
 
 [Get Weedout on the Mac App Store ($1.99, one-time purchase)](https://apps.apple.com/app/weedout-ai-for-youtube/id6804296217?mt=12)
 
+![Weedout dimming AI-labeled videos in a YouTube search](screenshot.png)
+
 ## Why Weedout
 
 - Uses YouTube's own disclosure labels, not guesses, heuristics, or a community blocklist.
