@@ -17,5 +17,3 @@ Weedout is a Safari extension for macOS that removes videos YouTube itself label
 Weedout can only filter videos YouTube labels. Unlabeled AI content will still get through. As YouTube labels more content, Weedout catches more.
 
 Learn more at [masteranza.github.io/weedout](https://masteranza.github.io/weedout/) or read the [privacy policy](https://masteranza.github.io/weedout/privacy.html).
-
-Questions or a weed that slipped through? Email [masteranza@gmail.com](mailto:masteranza@gmail.com).
